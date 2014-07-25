@@ -11,17 +11,21 @@ kontrol = -1
 j=0
 
 #test
+
+
 def kontrol():
     print "sutun_sayisi:%s"%sutun_sayisi
     print "her_bir_parcanin_genisligi:%s"%her_bir_parcanin_genisligi
     print "yukseklik:%s"%yukseklik
     print "sonuc:%d " %(yukseklik * her_bir_parcanin_genisligi * 20)
 
+
 def Kac_Pixel(x,y):
     genislik , yukseklik = resim.size
     pixel = data[y * genislik + x]
     #print pixel #test
     return pixel
+
 
 def get_shred(kacinci_sutun):
     x1 = her_bir_parcanin_genisligi * kacinci_sutun
@@ -30,6 +34,7 @@ def get_shred(kacinci_sutun):
     y2 = yukseklik
     shred  = Image.new("RGBA", (her_bir_parcanin_genisligi, yukseklik))
     return shred
+
 
 def pixel_islemler():
     r, g, b = 0, 0 ,0
@@ -77,14 +82,19 @@ def pixel_islemler():
         j = j + 1
 
         if j == 20 :
+
             if taraf == 0: #sol anlaminda
+
                  while j<19:
+
                     if sag_sirali[0] == sag_sirasiz[j]:
                         en_iyi_eslesme = j + 1
                         print "en iyi eslesme shredi sagda", en_iyi_eslesme, "taraf sag", "deger", sag_sirali[0]
+
                     if sol_sirali[0] == sol_sirasiz[j]:
                         en_iyi_eslesme = j + 1
                         print "en iyi eslesme shredi solda", en_iyi_eslesme, "taraf sol", "deger", sol_sirali[0]
+
                     j=j+1
 
                  # if t==sutun_sayisi-1:
@@ -93,6 +103,7 @@ def pixel_islemler():
                  #    taraf = 1
                  #    j = 1
                  #    t = t + 1
+
             else:
                 j = 1
                 taraf=0
@@ -106,10 +117,6 @@ def pixel_islemler():
     #         en_iyi_eslesme = j + 1
     #         print "en iyi eslesme shredi solda", en_iyi_eslesme, "taraf sol", "deger", sol_sirali[0]
     #     j=j+1
-
-
-
-
 
 pixel_islemler()
 kontrol()

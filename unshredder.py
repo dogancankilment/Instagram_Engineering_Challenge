@@ -4,6 +4,7 @@ import PIL.Image
 
 # calistirmak icin python unshredder.py image_file.jpg
 
+
 def pixel_islemleri(image, shred_width, left_shred, right_shred):
 
     """
@@ -24,6 +25,7 @@ def pixel_islemleri(image, shred_width, left_shred, right_shred):
                     data[y * w + right_shred * shred_width])
                 for y in xrange(h)])
 
+
 def unshred(image, shred_width):
 
     """
@@ -37,6 +39,7 @@ def unshred(image, shred_width):
     Buradan geri donecek deger (return yapacak sey)
     Unshred yapilmis olan resmi olusturacak shred listesini tutacak
     """
+
 
     def unshred_islemi(yerlestirme, shreds_left, unshred_order):
 
