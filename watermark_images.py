@@ -2,8 +2,11 @@ from PIL import Image, ImageEnhance
 
 
 def reduce_opacity(im, opacity):
-    """Returns an image with reduced opacity."""
-    assert opacity >= 0 and opacity <= 1
+    """
+    Returns an image with reduced opacity.
+    """
+
+    assert opacity>=0 and opacity<=1
     if im.mode != 'RGBA':
         im = im.convert('RGBA')
     else:
@@ -42,11 +45,22 @@ def watermark(im, mark, position, opacity=1):
 
 
 def test():
-    im = Image.open('deneme2.png')
+    """
+    If you want, you can change this "show" function,
+    .show() -> .save()
+    like this;
+
+    watermark(im, mark, 'tile', 0.5).save("result.png", "PNG")
+
+    And u can see the result.
+    """
+
+    im = Image.open('example_image.png')
     mark = Image.open('penguin.png')
-    watermark(im, mark, 'tile', 0.5).show()
-    watermark(im, mark, 'scale', 1.0).show()
-    watermark(im, mark, (100, 100), 0.5).show()
+    watermark(im, mark, 'tile', 0.5).show()  # result1
+    watermark(im, mark, 'scale', 1.0).show()  # result2
+    watermark(im, mark, (100, 100), 0.5).show()  # result3
+
 
 if __name__ == '__main__':
     test()
